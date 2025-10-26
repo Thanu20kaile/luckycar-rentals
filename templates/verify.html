@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucky Car Rentals - Document Verification</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f4f6f8;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+/* ---------- CARD ---------- */
+.container {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  width: 950px;
+  margin-top: 50px;
+  overflow: hidden;
+}
+
+/* ---------- HEADER ---------- */
+.header {
+  background: #004f44;
+  color: white;
+  padding: 25px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .logo {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 600;
+  gap: 10px;
+}
+
+.header .logo img {
+  width: 28px;
+  height: 28px;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* ---------- CONTENT ---------- */
+.content {
+  padding: 30px 40px;
+}
+
+.auth-box {
+  background: #e6f4f0;
+  border-left: 4px solid #00a76f;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+/* ---------- VERIFICATION DETAILS ---------- */
+.details {
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.details strong {
+  font-weight: 600;
+  color: #000;
+}
+
+.verification-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.card-box {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fafafa;
+  text-align: center;
+}
+
+.card-box img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-25deg);
+  background: rgba(255, 0, 0, 0.7);
+  color: white;
+  font-weight: 600;
+  padding: 6px 20px;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.label {
+  background: #f4f4f4;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  border-top: 1px solid #ddd;
+}
+
+/* ---------- VERIFICATION STATUS ---------- */
+.verification-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.status-list {
+  flex: 0 0 65%;
+}
+
+.status-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.status-list li {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.status-list label {
+  margin-left: 8px;
+}
+
+.admin-notes {
+  flex: 0 0 30%;
+}
+
+.admin-notes input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* ---------- ACTION BUTTONS ---------- */
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-green {
+  background: #00a76f;
+  color: white;
+}
+
+.btn-green:hover {
+  background: #00925f;
+}
+
+.btn-orange {
+  background: #f4a100;
+  color: white;
+}
+
+.btn-orange:hover {
+  background: #d78b00;
+}
+
+.btn-red {
+  background: #d64545;
+  color: white;
+}
+
+.btn-red:hover {
+  background: #b93131;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #444;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <img src="https://cdn-icons-png.flaticon.com/512/743/743131.png" alt="car logo">
+        Lucky Car Rentals
+      </div>
+      <h2>Document Verification</h2>
+    </div>
+
+    <div class="content">
+      <form method="POST">
+        <div class="auth-box">
+          Authentication required. Please enter your 2FA code.
+        </div>
+
+        <div class="details">
+          <strong>Verification for:</strong> {{ user.first_name }} {{ user.last_name }}<br>
+          <span>(Booking ID: #LC-R-123456)</span>
+        </div>
+
+        <div class="verification-grid">
+          <div class="card-box">
+            <img src="/uploads/aadhar_front.jpg" alt="Aadhar Front">
+            <div class="watermark">LUCKY RENTALS - FOR VERIFICATION ONLY</div>
+            <div class="label">Aadhar Card</div>
+          </div>
+          <div class="card-box">
+            <img src="/uploads/license_front.jpg" alt="License Front">
+            <div class="watermark">LUCKY RENTALS - FOR VERIFICATION ONLY</div>
+            <div class="label">Driving License</div>
+          </div>
+          <div class="card-box">
+            <img src="/uploads/aadhar_back.jpg" alt="Aadhar Back">
+            <div class="watermark">LUCKY RENTALS - FOR VERIFICATION ONLY</div>
+            <div class="label">Aadhar Card (Back)</div>
+          </div>
+          <div class="card-box">
+            <img src="/uploads/license_back.jpg" alt="License Back">
+            <div class="watermark">LUCKY RENTALS - FOR VERIFICATION ONLY</div>
+            <div class="label">Driving License (Back)</div>
+          </div>
+        </div>
+
+        <div class="verification-status">
+          <div class="status-list">
+            <ul>
+              <li>1. Data Match:
+                <label><input type="radio" name="data1" value="Yes"> Yes</label>
+                <label><input type="radio" name="data1" value="No"> No</label>
+              </li>
+              <li>2. Data Match:
+                <label><input type="radio" name="data2" value="Yes"> Yes</label>
+                <label><input type="radio" name="data2" value="Unclear"> Unclear</label>
+              </li>
+              <li>3. Photo Clarity:
+                <label><input type="radio" name="clarity" value="Clear"> Clear</label>
+                <label><input type="radio" name="clarity" value="Unclear"> Unclear</label>
+              </li>
+            </ul>
+          </div>
+          <div class="admin-notes">
+            <label>Admin Notes:</label>
+            <input type="text" name="notes" placeholder="Enter notes...">
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button type="submit" name="action" value="approve" class="btn-green">
+            Confirm & Approve Booking
+          </button>
+          <button type="submit" name="action" value="reupload" class="btn-orange">
+            Request Re-upload
+          </button>
+          <button type="submit" name="action" value="cancel" class="btn-red">
+            Cancel Booking
+          </button>
+        </div>
+
+        <a href="/booking" class="back-link">← Return to Booking History</a>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

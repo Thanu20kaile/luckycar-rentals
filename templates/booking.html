@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucky Car Rentals - Personal & Identification Details</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* ---------- GLOBAL BACKGROUND ---------- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* ---------- GLASS CONTAINER ---------- */
+.container {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(15px);
+  border-radius: 25px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+  padding: 40px 60px;
+  width: 950px;
+  color: #111;
+}
+
+/* ---------- HEADER ---------- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 22px;
+  color: #00a76f;
+}
+
+.logo i {
+  font-size: 26px;
+  margin-right: 10px;
+}
+
+.step {
+  font-weight: 500;
+  color: #444;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #00a76f 60%, #ddd 40%);
+  margin-bottom: 25px;
+}
+
+/* ---------- FORM ---------- */
+h2 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: rgba(255,255,255,0.9);
+  font-size: 15px;
+  outline: none;
+}
+
+/* ---------- DOCUMENT SECTION ---------- */
+.section-title {
+  margin-top: 25px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111;
+}
+
+.sub-text {
+  color: #444;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.file-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.file-box {
+  border: 2px dashed #00aaff;
+  border-radius: 12px;
+  text-align: center;
+  padding: 25px 10px;
+  background: rgba(255,255,255,0.4);
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.file-box:hover {
+  background: rgba(255,255,255,0.6);
+}
+
+.file-box input[type="file"] {
+  opacity: 0;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.file-box i {
+  font-size: 28px;
+  color: #00aaff;
+  margin-bottom: 10px;
+}
+
+.file-box span {
+  display: block;
+  font-weight: 500;
+  color: #111;
+}
+
+/* ---------- CAR IMAGE ---------- */
+.car-img {
+  background: url('https://upload.wikimedia.org/wikipedia/commons/6/6a/Aston_Martin_DB5_%E2%80%9367_%2814624577285%29.jpg') no-repeat center center/cover;
+  height: 100px;
+  width: 220px;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+
+/* ---------- BUTTONS ---------- */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.back-btn {
+  background: #d6d6d6;
+  color: #000;
+}
+
+.back-btn:hover {
+  background: #bfbfbf;
+}
+
+.next-btn {
+  background: #00a76f;
+  color: #fff;
+}
+
+.next-btn:hover {
+  background: #00925f;
+}
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo"><i class="fa-solid fa-car-side"></i> Lucky Car Rentals</div>
+      <div class="step">Step 2 of 3: Your Details</div>
+    </div>
+    <div class="progress-bar"></div>
+
+    <h2>Personal & Identification Details</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+      <div class="row">
+        <div style="flex:0 0 48%;">
+          <label>First Name</label>
+          <input type="text" name="first_name" required>
+        </div>
+        <div style="flex:0 0 48%;">
+          <label>Last Name</label>
+          <input type="text" name="last_name" required>
+        </div>
+      </div>
+
+      <div class="section-title">Upload Required Documents</div>
+      <p class="sub-text">Please upload clear photos of your Aadhar Card and Driving License for verification.</p>
+
+      <div class="file-grid">
+        <label class="file-box">
+          <i class="fa-solid fa-cloud-arrow-up"></i>
+          <span>Upload Aadhar Card - Front</span>
+          <input type="file" name="aadhar_front" required>
+        </label>
+        <label class="file-box">
+          <i class="fa-solid fa-cloud-arrow-up"></i>
+          <span>Upload Aadhar Card - Back</span>
+          <input type="file" name="aadhar_back" required>
+        </label>
+        <label class="file-box">
+          <i class="fa-solid fa-cloud-arrow-up"></i>
+          <span>Upload Driving License - Front</span>
+          <input type="file" name="license_front" required>
+        </label>
+        <label class="file-box">
+          <i class="fa-solid fa-cloud-arrow-up"></i>
+          <span>Upload Driving License - Back</span>
+          <input type="file" name="license_back" required>
+        </label>
+      </div>
+
+      <div class="car-img"></div>
+
+      <div class="row">
+        <div style="flex:0 0 48%;">
+          <label>Aadhar Number</label>
+          <input type="text" name="aadhar_no" placeholder="XXXX XXXX XXXX" required>
+        </div>
+        <div style="flex:0 0 48%;">
+          <label>Driving License Number</label>
+          <input type="text" name="license_no" placeholder="XXXX XXX XXX" required>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="back-btn" onclick="window.location.href='/login'">Back</button>
+        <button type="submit" class="next-btn">Continue to Booking Duration</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
